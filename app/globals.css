@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* color pallette:
+171717 - bg
+444444 - cards
+da0037 - buttons
+ededed - text  */
+
+/* retro color pallette:
+3c486b - bg
+f0f0f0 - text
+f9d949 - buttons
+f45050 - cards  */
+
+
+@media (prefers-color-scheme: dark) {
+  /* :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  } */
+}
+
+body, #Categories, #Curator, #Featured, #Footer {
+  color: #F0F0F0;
+  background: #3C486B;
+}
+
+#quote, #Brands {
+  background: #F0F0F0;
+  color: #3C486B;
+}
+
+
+.primaryBtnCSS {
+  @apply
+  border-2 
+  border-neutral-50 
+  px-7 
+  pb-[8px] 
+  pt-[10px] 
+  text-sm 
+  uppercase 
+  leading-normal 
+  text-neutral-50 
+  transition 
+  duration-150 ease-in-out 
+  hover:border-neutral-100 
+  hover:bg-neutral-500 
+  hover:bg-opacity-10 
+  hover:text-neutral-100 
+  focus:border-neutral-100 
+  focus:text-neutral-100 
+  focus:outline-none 
+  focus:ring-0 
+  active:border-neutral-200 
+  active:text-neutral-200 
+  dark:hover:bg-neutral-100 
+  dark:hover:bg-opacity-10
+}
+
+.btnCSS {
+  @apply
+  inline-block
+  bg-[#f9d949] 
+  shadow-[0_4px_9px_-4px_#3b71ca]
+  disabled:opacity-70 
+  px-6
+  py-3 
+  text-xs
+  uppercase
+  rounded-sm
+  text-[#3C486B] 
+  shadow-black
+  transition 
+  duration-150 
+  ease-in-out 
+  hover:bg-[#d6bb3f] 
+  hover:text-neutral-100
+  focus:bg-[#d6bb3f]
+  focus:shadow-black
+  focus:outline-none 
+  focus:ring-0 
+  active:bg-[#d6bb3f]
+  active:shadow-black
+}
+
+.btnTwoCSS {
+  @apply
+  inline-block
+  border-2 
+  border-[#f9d949]
+  shadow-[0_4px_9px_-4px_#3b71ca]
+  rounded-sm
+  px-6
+  py-2.5
+  text-xs
+  uppercase  
+  text-[#f9d949] 
+  shadow-black
+  transition 
+  duration-150 
+  ease-in-out 
+  hover:bg-[#d6bb3f] 
+  focus:bg-[#d6bb3f]
+  focus:shadow-black
+  focus:outline-none 
+  focus:ring-0 
+  active:bg-[#d6bb3f]
+  active:shadow-black
+}
+
+.btnThreeCSS {
+  @apply
+  pointer-events-none 
+  bg-[#f9d949]  
+  shadow-[0_4px_9px_-4px_#3b71ca]
+  disabled:opacity-70 
+  inline-block
+  px-6
+  py-3 
+  text-xs
+  uppercase
+  rounded-sm
+  text-white 
+  shadow-black
+  transition 
+  duration-150 
+  ease-in-out 
+  focus:shadow-black
+  focus:outline-none 
+  focus:ring-0 
+}
