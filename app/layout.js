@@ -5,9 +5,7 @@ import { montserrat_font } from './lib/fonts';
 import Footer from './components/Footer';
 import { CartProvider } from './utils/loadCart';
 
-// const Component = dynamic(() => import("./utils/tw-elementComponents"), {
-//   ssr: false,
-// });
+
 
 export const metadata = {
   title: "Bivens's Boutique",
