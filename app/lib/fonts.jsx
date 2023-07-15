@@ -1,4 +1,4 @@
-import { Bad_Script, Castoro, Chonburi, Montserrat, Quicksand, Roboto } from "next/font/google";
+import { Bad_Script, Castoro, Chonburi, Montserrat } from "next/font/google";
 
 
 export const badScript_font = Bad_Script({
@@ -8,11 +8,6 @@ export const badScript_font = Bad_Script({
 
 export const montserrat_font = Montserrat({
     subsets: ['latin']
-})
-
-export const quicksand_font = Quicksand({
-    subsets: ['latin'],
-    weight: '500',
 })
 
 export const castoro_font = Castoro({
@@ -25,7 +20,3 @@ export const chonburi_font = Chonburi({
     weight: '400'
 })
 
-export const roboto_font = Roboto({
-    subsets: ['latin'],
-    weight: '400'
-})

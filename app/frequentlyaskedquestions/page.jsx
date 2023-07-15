@@ -11,7 +11,8 @@ const page = () => {
 
             <div className="py-10 w-2/3 m-auto">
                 <div id="FAQQuestions">
-                    {faqData.map( FAQComponent )}
+                        <FAQComponent />
+                    
                 </div>
             </div>
         </div>
