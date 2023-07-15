@@ -6,7 +6,7 @@ import Banner from "@/app/components/(store)/Banner";
 import { useCartState } from "@/app/utils/loadCart";
 
 
-const page = () => {
+const Page = () => {
     const {line_items, subtotal, hosted_checkout_url } = useCartState();
 
     if (line_items.length === 0) return <EmptyCart />
@@ -57,4 +57,4 @@ const page = () => {
 }
 
 
-export default page;
+export default Page;

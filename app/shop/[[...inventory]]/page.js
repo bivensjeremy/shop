@@ -20,7 +20,7 @@ const  page = async({ params }) => {
             <div className="p-3 mx-auto">
                 <div className="flex flex-wrap justify-center">
                     {products.map((item) => (
-                        <Suspense fallback={ <Spinner />}>
+                        <Suspense fallback={ <Spinner />} key={item.id}>
                             <Product props={item} />
                         </Suspense>
                     ))}
