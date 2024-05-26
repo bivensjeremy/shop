@@ -1,4 +1,3 @@
-import commerce from "./commerce";
 
 // export default function addToCart(id) {
 // // console.log(commerce.cart)
@@ -15,6 +14,8 @@ import commerce from "./commerce";
 //         }
 //     }
 // }
+
+import { commerce } from "./commerce";
 
 
 export const addToCart = async (id) => await commerce.cart.add(id)
