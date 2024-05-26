@@ -10,6 +10,7 @@ const Page = async ({ params, searchParams }) => {
     let category;
     const query = searchParams?.search || undefined;
     const page = Number(searchParams?.page) || 1;
+    const limit = 16;
 
    if (Object.keys(params).length === 0) {
         category = undefined
@@ -17,7 +18,7 @@ const Page = async ({ params, searchParams }) => {
         category = params.category_slug[0]
     }
 
-    const { shopItems, error } = await getProducts(category, query, page);
+    const { shopItems, error } = await getProducts(category, query, page, limit);
     
     if (error) return <div className="text-center">{error}!</div>
 

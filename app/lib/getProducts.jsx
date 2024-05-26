@@ -1,6 +1,6 @@
 import commerce from "./commerce";
 
-export default async function getProducts(category, query, page) {
+export default async function getProducts(category, query, page, limit) {
     // throw new Error('Failed to Delete Invoice');
     let categorySlug = null
     let shopItems = null
@@ -16,7 +16,7 @@ export default async function getProducts(category, query, page) {
     try {
         shopItems = await commerce.products.list({
             category_slug: category,
-            limit: 16,
+            limit: limit,
             query: query,
             page: page
         })
