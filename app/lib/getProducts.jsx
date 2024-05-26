@@ -1,4 +1,4 @@
-import { commerce } from "./commerce";
+import commerce from "./commerce";
 
 export default async function getProducts(category, query, page) {
     // throw new Error('Failed to Delete Invoice');

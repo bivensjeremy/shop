@@ -1,4 +1,4 @@
-import { commerce } from "./commerce";
+import commerce from "./commerce";
 
 // export default function addToCart(id) {
 // // console.log(commerce.cart)

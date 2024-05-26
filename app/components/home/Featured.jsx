@@ -1,9 +1,10 @@
-import { commerce } from "@/app/lib/commerce";
+// import { commerce } from "@/app/lib/commerce";
+import client from "@/app/lib/commerce";
 import ShopItem from "../ShopItem";
 import Tagline from "../Tagline";
 
 const Featured = async () => {
-    const { data: products } = await commerce.products.list({ limit: 32 })
+    const { data: products } = await client.products.list({ limit: 32 })
     const dayOfTheMonth = new Date().getDate();
     
     return (
