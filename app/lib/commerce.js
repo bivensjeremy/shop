@@ -11,6 +11,6 @@
 
 import CommerceSDK from "@chec/commerce.js";
 
-const commerce = new CommerceSDK('pk_27185ef0695f9d4b480f840c8b4ceb36e07064c24a88f');
+const commerce = new CommerceSDK('pk_271851784e7f71eb50c958dd7193d42056fa3cf5437c2');
 
 export default commerce;
