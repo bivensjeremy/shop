@@ -23,7 +23,7 @@ const Curator = () => {
                             as={Link}
                             rel="noreferrer noopener" 
                             target="_blank"
-                            href="https://bivensblueprint.com/aboutbivens"
+                            href="https://blueprintwebdev.com/aboutbivens"
                         >
                             More About Bivens
                         </Button>

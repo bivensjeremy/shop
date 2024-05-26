@@ -21,8 +21,11 @@ const AddToCartButton = ({ productId }) => {
             setButtonDisabled(true);
             setButtonTitle('Item in Cart');
             break;
+        } else {
+            setButtonDisabled(false);
+            setButtonTitle('Add to Cart');
         }
-    }, [])
+    })
 
     const handleAdd = async () => {
         setLoadingState(true);
