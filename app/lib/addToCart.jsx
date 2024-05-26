@@ -15,7 +15,6 @@
 //     }
 // }
 
-import { commerce } from "./commerce";
-
+import commerce from "./commerce";
 
 export const addToCart = async (id) => await commerce.cart.add(id)

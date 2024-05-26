@@ -1,4 +1,5 @@
-import { commerce } from "@/app/lib/commerce";
+
+import commerce from "@/app/lib/commerce";
 import ShopItem from "../ShopItem";
 import Tagline from "../Tagline";
 
