@@ -3,34 +3,46 @@
 import { useCartDispatch } from "@/app/utils/loadCart"
 import { useState } from "react";
 import { removeFromCart } from "../(store)/cartFunctions";
-import { TrashIcon } from "@heroicons/react/24/solid";
-import Spinner from "../(store)/Spinner";
+import { HiOutlineTrash } from "react-icons/hi2";
 
 const DeleteButton = ({ productId }) => {
-    const [working, setWorking] = useState(false)
     const { setCart } = useCartDispatch();
+    const [loadingState, setLoadingState] = useState(false)
 
-    const deleteItem = (productID) => {
-        setWorking(true)
-        removeFromCart(productID).then(
-            
-            ({cart}) => setCart(cart)
-            
-        )
+    const handleDelete = async () =>{
+        setLoadingState(true);
+        try {
+            const { cart } = await removeFromCart(productId)
+            if(cart) {
+                setCart(cart);
+                setLoadingState(false);
+            } else {
+                alert(`Error: ${error.message}`);
+                setLoadingState(false);
+            }
+        } catch (error) {
+            alert(`Error: ${error.message}`);
+            setLoadingState(false);
+        }
     }
 
-    if (working) {
-        return <Spinner />
-    } 
-        return (
-            <div className="m-auto">
-                <button onClick={() => deleteItem(productId)}>
-                <TrashIcon className="h-6 w-6" />
-            </button>
-            </div>
-            
-        )
-    
+    return (
+        <button
+            className={`
+                btn
+                btn-square
+                btn-ghost
+                hover:bg-[#F0F0F0]
+                ${loadingState ? 'btn disabled' : ''}
+            `}
+            onClick={handleDelete}
+        >
+            {loadingState 
+                ? <span className="loading loading-spinner" /> 
+                : <HiOutlineTrash className='h-6 w-auto' />
+            }
+        </button>
+    )
 }
 
 export default DeleteButton;

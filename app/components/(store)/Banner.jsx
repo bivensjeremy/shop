@@ -1,19 +1,25 @@
-import { badScript_font } from "@/app/lib/fonts";
-import Video from "../(homepage)/Video";
 
-const Banner = ({ props }) => {
-    var header = (props === undefined) ? 'Shop Our Collection' : props
+import Transition from "@/app/lib/Transition";
+import Tagline from "../Tagline";
+import { parisienne_font } from "@/app/lib/fonts";
+
+const Banner = ({ title }) => {
+    const bannerTitle = (title === undefined) ? 'Shop Our Collection' : title
 
     return (
-        <div className="h-96 bg-[#F0F0F0]">
-            <div className="flex flex-col justify-center text-center container m-auto h-full relative">
-                <div >
-                    <h1 className={`${badScript_font.className} text-6xl justify-center my-5 text-[#3C486B]`}>
-                        { header }
-                    </h1>
-                </div>
+        <div className="hero bg-secondary h-60 overflow-hidden">
+            <div className="hero-content absolute drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                <Tagline text={bannerTitle} />
             </div>
+
+            <Transition durationTime={0.9}>
+                <p className={`${parisienne_font.className} text-[15rem] text-accent/50 text-nowrap flex-col text-center m-auto h-full flex justify-center`}>
+                            {bannerTitle}
+                        </p>
+            </Transition>
+            
         </div>
+
     );
 }
 

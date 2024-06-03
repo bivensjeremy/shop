@@ -1,29 +1,39 @@
 import { useCartDispatch } from "@/app/utils/loadCart";
-import { emptyCart } from "../(store)/cartFunctions";
 import { useState } from "react";
-import Spinner from "../(store)/Spinner";
+import { TbTrashX } from "react-icons/tb";
+import { emptyCart } from "../(store)/cartFunctions";
 
 const EmptyCartButton = () => {
-    const [working, setWorking] = useState(false)
+    const [loadingState, setLoadingState] = useState(false);
     const { setCart } = useCartDispatch();
 
-    const deleteCart = () => {
-        setWorking(true)
-        emptyCart().then(
-            ({cart}) => setCart(cart)
-        )
+    const deleteCart = async () => {
+        setLoadingState(true);
+        try {
+            const { cart } = await emptyCart();
+            if(cart) {
+                setCart(cart);
+                setLoadingState(false);
+            } 
+        } catch (error) {
+            setLoadingState(false);
+            alert('Error deleting cart. Please try again.');
+        }
     }
-
-    if (working) {
         return (
-            <button disabled className="btnCSS">
-                Emptying Cart...
-            </button>
-        )
-    } 
-        return (
-            <button onClick={() => deleteCart()} className="btnTwoCSS">
-                Empty Cart
+            <button
+                onClick={deleteCart}
+                className={`
+                    btn 
+                    btn-neutral
+                    btn-outline
+                    ${loadingState ? 'btn-disabled' : ''}
+                `}
+            >
+                {loadingState 
+                    ? <span className="loading loading-spinner" /> 
+                    : <TbTrashX className="w-5 h-auto" /> 
+                }<span className="hidden sm:flex">Empty Cart</span>
             </button>
         )
 }

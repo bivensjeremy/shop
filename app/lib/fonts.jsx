@@ -1,4 +1,4 @@
-import { Bad_Script, Castoro, Chonburi, Montserrat } from "next/font/google";
+import { Architects_Daughter, Bad_Script, Castoro, Chonburi, Inter, Montserrat, Oswald, Parisienne } from "next/font/google";
 
 
 export const badScript_font = Bad_Script({
@@ -20,3 +20,21 @@ export const chonburi_font = Chonburi({
     weight: '400'
 })
 
+export const parisienne_font = Parisienne({
+    subsets: ['latin'],
+    weight: '400'
+})
+
+export const architects_font = Architects_Daughter({
+    subsets: ['latin'],
+    weight: '400'
+})
+
+export const oswald_font = Oswald({
+    subsets: ['latin'],
+    weight: '700'
+})
+
+export const inter_font = Inter({
+    subsets: ['latin']
+})

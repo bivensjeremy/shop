@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['cdn.chec.io']
-  },
-  experimental: {
-    appDir: true,
+    remotePatterns: [
+      {
+          protocol: 'https',
+          hostname: 'cdn.chec.io'
+      }
+  ]
   },
 }
 

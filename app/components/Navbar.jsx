@@ -1,56 +1,33 @@
-import { ShoppingBagIcon } from '@heroicons/react/24/solid'
-import NavLink from './NavLink';
-import ShoppingCartNav from './(store)/ShoppingCartNav';
-import NavbarMobileMenu from './NavbarMobileMenu';
-
-const navigationLinks =  [
-	{
-		name: 'Home',
-		link: '/'
-	},
-	{
-		name: 'Shop',
-		link: '/shop',
-	},
-	{
-		name: 'About',
-		link: '/about',
-	},
-	{
-		name: 'FAQs',
-		link: '/frequentlyaskedquestions',
-	},
-]
+import Link from 'next/link';
+import { navigationLinks } from '../database/navigationLinks';
+import HeaderDropdown from './HeaderDropdown';
+import ShoppingCart from './ShoppingCart';
 
 const Navbar = () => {
 	return (
-		// <!-- Main navigation container -->
-		<nav className="flex-no-wrap top-0 flex w-full items-center justify-between py-6 bg-[#3C486B]/50 relative shadow-md shadow-black/5  lg:flex-wrap lg:justify-start" data-te-navbar-ref>
-			<div className="flex w-full flex-wrap items-center justify-between px-3">
-				<NavbarMobileMenu />
-				
-				{/* <!-- Collapsible navigation container --> */}
-				<div className="!visible hidden flex-grow items-center lg:!flex">
-					<ul className="list-style-none mx-auto flex flex-col lg:flex-row">
-						{navigationLinks.map(({ name, link }) => (
-							<li key={name} className="mx-4">
-								<NavLink href={link} className="uppercase hover:text-[#d6bb3f]">
-									{name}
-								</NavLink>
-							</li>
-						))}
-					</ul>
-				</div>
+		<div className="navbar bg-secondary/60 max-w-full text-neutral fixed z-[10]">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <HeaderDropdown />
+                    </div>
+                </div>
+            </div>
 
-				{/* <!-- Right elements --> */}
-				<div className="relative flex items-center">
-					<NavLink href='/checkout/cart' >
-						<ShoppingBagIcon className="h-6 w-6 mr-4 hover:text-[#d6bb3f] focus:text-[#d6bb3f]" />
-						<ShoppingCartNav />
-					</NavLink>
-				</div>
-			</div>
-		</nav>
+            <div className="navbar-center hidden lg:flex gap-4">
+                {navigationLinks.map(({ name, link }) => (
+                    <div key={name}>
+                        <Link role="button" href={link} className='btn btn-ghost uppercase text-default hover:text-primary'>
+                            {name}
+                        </Link>
+                    </div>
+                ))}
+            </div>
+
+            <div className="navbar-end">
+                <ShoppingCart />
+            </div>
+        </div>
     );
 }
 

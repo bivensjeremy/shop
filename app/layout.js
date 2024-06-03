@@ -11,14 +11,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className='h-full'>
-      
+    <html lang="en" className='scroll-smooth'>
       <CartProvider>
-        <body className={`${montserrat_font.className} flex flex-col min-h-full`}>
+        <body className={`${montserrat_font.className}`}>
           <Navbar />
-            <main className='grow'>
-              {children}
-            </main>
+            {children}
           <Footer />
         </body>
       </CartProvider>

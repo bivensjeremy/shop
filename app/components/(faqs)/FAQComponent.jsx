@@ -1,24 +1,22 @@
-'use client'
-
 import { faqData } from "@/app/database/faqData";
-import { Accordion } from "flowbite-react";
 
 const FAQComponent = () => {
 
     return (
-        <Accordion collapseAll>
-            {faqData.map((data) => (
-                <Accordion.Panel key={data.id}>
-                    <Accordion.Title className="bg-[#F0F0F0]  focus:text-[#d6bb3f]">
-                        {data.question}
-                    </Accordion.Title>
-
-                    <Accordion.Content className="">
-                        {data.answer}
-                    </Accordion.Content>
-                </Accordion.Panel>
+        <div className="join join-vertical w-full shadow-lg bg-neutral text-accent">
+            {faqData.map(({ question, answer, id }) => (
+                <div key={id} className="collapse collapse-arrow join-item border">
+                    <input type="radio" name="faqAccordion" defaultChecked /> 
+                    <div className="collapse-title text-lg font-medium">
+                        {question}
+                    </div>
+                    <div className="collapse-content"> 
+                        <p>{answer}</p>
+                    </div>
+                </div>
             ))}
-        </Accordion>
+        </div>            
+
     );
 }
 

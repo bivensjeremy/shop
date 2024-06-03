@@ -1,29 +1,29 @@
-import NavLink from "../NavLink";
+import Link from "next/link";
 import EmptyCartButton from "./EmptyCartButton";
-
-const { default: Spinner } = require("../(store)/Spinner")
+import { ImCart } from "react-icons/im";
 
 const Subtotal = ({ subtotal, checkout }) => {
-    if (!subtotal) return <Spinner />
-    
+    if(!subtotal) return;
+
     return (
-        <div className="flex flex-row justify-evenly">
-            
-            <EmptyCartButton />
+        <div className="card mt-4 bg-accent-content">
+            <div className="card-actions py-4 flex flex-row justify-around items-center">
+                <EmptyCartButton />
 
-            <NavLink href={checkout} className="btnCSS">
-                Checkout
-            </NavLink>
+                <Link role="button" href={checkout} className="btn btn-primary">
+                    <ImCart /> <span className="hidden sm:flex">Checkout</span>
+                </Link>
 
-        <div>
-            <h4 className="text-md">
-                Subtotal:
-            </h4>
-        <h4 className="text-xl">
-                {subtotal.formatted_with_symbol}
-            </h4>
-        </div>
-            
+                <div className="text-center">
+                    <h4 className="text-sm font-semibold">
+                        Subtotal:
+                    </h4>
+
+                    <h4 className="text-base">
+                        {subtotal.formatted_with_symbol}
+                    </h4>
+                </div>
+            </div>
         </div>
     );
 }

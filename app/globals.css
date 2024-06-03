@@ -23,7 +23,7 @@ f45050 - cards  */
   } */
 }
 
-body, #Categories, #Curator, #Featured, #Footer {
+/* body, #Categories, #Curator, #Featured, #Footer {
   color: #F0F0F0;
   background: #3C486B;
 }
@@ -31,7 +31,7 @@ body, #Categories, #Curator, #Featured, #Footer {
 #quote, #Brands {
   background: #F0F0F0;
   color: #3C486B;
-}
+} */
 
 
 .primaryBtnCSS {
