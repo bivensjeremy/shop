@@ -34,12 +34,10 @@ export const CartProvider = ({ children }) => {
     const setCart = (payload) => dispatch({ type: SET_CART, payload })
 
     const getCart = async () => {
-        let cart
+      
         try {
-            cart = await commerce.cart.retrieve()
-            if(!cart) {
-                cart = await commerce.cart.refresh()
-            }
+                const cart = await commerce.cart.refresh()
+            
             setCart(cart)
         } catch (error) {
             console.log(error)
